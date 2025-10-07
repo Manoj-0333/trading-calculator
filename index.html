@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trading Plan Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Your HTML content -->
+	<div class="container">
+        <div class="header">
+            <h1>🚀 Trading Plan Calculator</h1>
+            <p>Professional Risk Management with Trade Grouping</p>
+        </div>
+        
+        <div class="dashboard">
+            <!-- Configuration Card -->
+            <div class="card">
+                <h2>⚙️ Trading Configuration</h2>
+                <div class="config-group">
+                    <div class="input-group">
+                        <label for="initialCapital">Initial Capital ($)</label>
+                        <input type="number" id="initialCapital" value="1000" step="100">
+                    </div>
+                    <div class="input-group">
+                        <label for="riskReward">Risk-Reward Ratio</label>
+                        <input type="number" id="riskReward" value="3" step="0.5" min="1">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="baseRisk">Base Risk Percentage (%)</label>
+                    <input type="number" id="baseRisk" value="3" step="1" min="1" max="10">
+                </div>
+                <button class="btn btn-reset" onclick="resetTrading()">🔄 Reset All Trades</button>
+            </div>
+            
+            <!-- Trade Execution Card -->
+            <div class="card">
+                <h2>🎯 Execute Trade</h2>
+                <div class="config-group">
+                    <div class="input-group">
+                        <label for="entryPrice">Entry Price</label>
+                        <input type="number" id="entryPrice" value="3928.50" step="0.01">
+                    </div>
+                    <div class="input-group">
+                        <label for="slPrice">Stop Loss Price</label>
+                        <input type="number" id="slPrice" value="3924.00" step="0.01">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="tradeResult">Trade Result</label>
+                    <select id="tradeResult">
+                        <option value="win">WIN 🎉</option>
+                        <option value="lose">LOSE 💸</option>
+                    </select>
+                </div>
+                <button class="btn" onclick="executeTrade()">🎯 Execute Trade</button>
+                
+                <!-- Trade Results Display -->
+                <div id="tradeResults"></div>
+            </div>
+        </div>
+        
+        <!-- Metrics Dashboard -->
+        <div class="card">
+            <h2>📊 Live Trading Metrics</h2>
+            <div class="metrics">
+                <div class="metric">
+                    <div class="metric-label">Current Capital</div>
+                    <div class="metric-value" id="currentCapital">$1,000.00</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-label">Safety Capital</div>
+                    <div class="metric-value" id="safetyCapital">$1,000.00</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-label">Total Profit</div>
+                    <div class="metric-value" id="totalProfit">$0.00</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-label">Win Rate</div>
+                    <div class="metric-value" id="winRate">0%</div>
+                </div>
+            </div>
+            
+            <!-- Next Trade Preview -->
+            <div class="trade-details">
+                <h3>🔮 Next Trade Preview</h3>
+                <div class="trade-detail-row">
+                    <span>Available Profit to Risk:</span>
+                    <span id="availableProfit">$0.00</span>
+                </div>
+                <div class="trade-detail-row">
+                    <span>Estimated Risk Capital:</span>
+                    <span id="nextRiskCapital">$30.00</span>
+                </div>
+                <div class="trade-detail-row">
+                    <span>Trade Number:</span>
+                    <span id="nextTradeNumber">1</span>
+                </div>
+                <div class="trade-detail-row">
+                    <span>Trade Group:</span>
+                    <span id="tradeGroup">Individual</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Trade History -->
+        <div class="card">
+            <h2>📋 Trade History</h2>
+            <div id="historyTable">
+                <p style="text-align: center; color: #6c757d; padding: 20px;">
+                    No trades executed yet. Execute your first trade above!
+                </p>
+            </div>
+        </div>
+    </div>    
+
+
+<script src="script.js"></script>
+</body>
+</html>
